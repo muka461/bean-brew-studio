@@ -1,6 +1,6 @@
 import { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, Coffee } from 'lucide-react';
+import { Menu, X, ShoppingCart, Coffee, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { WelcomeModal } from './WelcomeModal';
 
 interface LayoutProps {
@@ -165,12 +165,52 @@ export function Layout({ children }: LayoutProps) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-primary-foreground/80">
-                <li>hello@beanboutique.example</li>
-                <li>+44 20 1234 5678</li>
-                <li>123 Coffee Street, London</li>
-              </ul>
+              <h4 className="font-semibold mb-4">Connect</h4>
+              <div className="space-y-4">
+                <div className="text-primary-foreground/80">
+                  <p>hello@beanboutique.example</p>
+                  <p>+44 20 1234 5678</p>
+                  <p>123 Coffee Street, London</p>
+                </div>
+                <div className="flex space-x-4">
+                  <a 
+                    href="https://facebook.com/beanboutique" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                    aria-label="Follow us on Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://instagram.com/beanboutique" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://twitter.com/beanboutique" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                    aria-label="Follow us on Twitter"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
+                  <a 
+                    href="https://youtube.com/beanboutique" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                    aria-label="Subscribe to our YouTube channel"
+                  >
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
