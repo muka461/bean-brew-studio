@@ -1,42 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Bean Boutique Design System - Premium Boutique Coffee Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Bean Boutique Brand Colors (HSL) */
+    --bb-primary: 15 19% 37%;        /* #6B4F4F - Rich coffee brown */
+    --bb-accent: 33 36% 56%;         /* #C08B5C - Warm golden accent */
+    --bb-cream: 33 43% 95%;          /* #F7EFE8 - Soft cream background */
+    --bb-ink: 0 0% 15%;              /* #262626 - Deep charcoal text */
+    --bb-success: 122 53% 32%;       /* #2E7D32 - Success green */
+    --bb-warning: 23 100% 28%;       /* #8E3200 - Warning orange */
+    
+    /* Extended palette for gradients and variants */
+    --bb-primary-light: 15 19% 50%;
+    --bb-primary-dark: 15 19% 25%;
+    --bb-accent-light: 33 36% 70%;
+    --bb-accent-dark: 33 36% 40%;
+    --bb-cream-dark: 33 43% 90%;
+    --bb-ink-light: 0 0% 25%;
+    
+    /* Semantic color mappings */
+    --background: var(--bb-cream);
+    --foreground: var(--bb-ink);
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: var(--bb-ink);
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: var(--bb-ink);
+    --primary: var(--bb-primary);
+    --primary-foreground: var(--bb-cream);
+    --secondary: var(--bb-accent);
+    --secondary-foreground: var(--bb-cream);
+    --muted: var(--bb-cream-dark);
+    --muted-foreground: var(--bb-ink-light);
+    --accent: var(--bb-accent);
+    --accent-foreground: var(--bb-cream);
+    --destructive: var(--bb-warning);
+    --destructive-foreground: var(--bb-cream);
+    --border: 33 43% 88%;
+    --input: 0 0% 100%;
+    --ring: var(--bb-primary);
+    
+    /* Premium design tokens */
+    --radius-sm: 0.5rem;    /* 8px */
+    --radius-md: 0.75rem;   /* 12px */
+    --radius-lg: 1rem;      /* 16px */
+    --radius: var(--radius-md);
+    
+    /* Shadows for premium feel */
+    --shadow-soft: 0 10px 24px hsla(var(--bb-ink), 0.08);
+    --shadow-medium: 0 20px 40px hsla(var(--bb-ink), 0.12);
+    --shadow-strong: 0 30px 60px hsla(var(--bb-ink), 0.16);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--bb-primary)), hsl(var(--bb-primary-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--bb-accent)), hsl(var(--bb-accent-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--bb-primary)) 0%, hsl(var(--bb-accent)) 100%);
+    --gradient-overlay: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+    
+    /* Animation timings */
+    --transition-fast: 200ms ease-out;
+    --transition-normal: 300ms ease-out;
+    --transition-slow: 500ms ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +84,25 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--bb-ink);
+    --foreground: var(--bb-cream);
+    --card: var(--bb-ink-light);
+    --card-foreground: var(--bb-cream);
+    --popover: var(--bb-ink-light);
+    --popover-foreground: var(--bb-cream);
+    --primary: var(--bb-accent);
+    --primary-foreground: var(--bb-ink);
+    --secondary: var(--bb-primary);
+    --secondary-foreground: var(--bb-cream);
+    --muted: var(--bb-ink-light);
+    --muted-foreground: 0 0% 65%;
+    --accent: var(--bb-accent);
+    --accent-foreground: var(--bb-ink);
+    --destructive: var(--bb-warning);
+    --destructive-foreground: var(--bb-cream);
+    --border: var(--bb-ink-light);
+    --input: var(--bb-ink-light);
+    --ring: var(--bb-accent);
   }
 }
 
@@ -100,6 +112,67 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Bean Boutique Component Styles */
+  .bb-card {
+    @apply rounded-lg bg-card p-6 shadow-lg;
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-normal);
+  }
+  
+  .bb-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .bb-button-primary {
+    @apply rounded-lg bg-primary px-6 py-3 text-primary-foreground font-medium;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .bb-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .bb-button-secondary {
+    @apply rounded-lg bg-secondary px-6 py-3 text-secondary-foreground font-medium;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .bb-button-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .bb-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bb-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bb-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .bb-text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
