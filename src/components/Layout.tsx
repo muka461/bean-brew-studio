@@ -1,7 +1,8 @@
 import { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, Coffee, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Menu, X, ShoppingCart, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { WelcomeModal } from './WelcomeModal';
+import logoImage from '../assets/logo.png';
 
 interface LayoutProps {
   children: ReactNode;
@@ -62,7 +63,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 text-2xl font-heading font-bold bb-text-gradient">
-              <Coffee className="h-8 w-8 text-primary" />
+              <img src={logoImage} alt="Bean Boutique Logo" className="h-8 w-8" />
               <span>Bean Boutique</span>
             </Link>
 
